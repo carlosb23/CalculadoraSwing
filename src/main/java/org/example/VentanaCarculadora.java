@@ -7,6 +7,11 @@ import java.awt.event.ActionListener;
 
 import static java.lang.String.*;
 
+/**
+ * Esta clase representa una calculadora GUI con operaciones básicas.
+ * Permite realizar operaciones de suma, resta, multiplicación y división.
+ * Además, incluye funciones para borrar la pantalla y encender/apagar la calculadora.
+ */
 public class VentanaCarculadora extends JFrame {
 
 
@@ -36,7 +41,10 @@ public class VentanaCarculadora extends JFrame {
     double a, b, result;
     String op;
 
-
+    /**
+     * Constructor de la clase VentanaCalculadora.
+     * Inicializa la interfaz gráfica de la calculadora y configura los botones y acciones.
+     */
     public VentanaCarculadora() {
 
         this.setContentPane(Calculadora);
@@ -47,13 +55,21 @@ public class VentanaCarculadora extends JFrame {
 
         this.setIconImage(new ImageIcon(getClass().getClassLoader().getResource("calculadora.png")).getImage());
 
+
+
         ACButton.addActionListener(new ActionListener() {
+
+            /**
+             * Maneja las acciones de los botones de la calculadora.
+             * @param e El evento de acción que desencadena la operación.
+             */
             @Override
             public void actionPerformed(ActionEvent e) {
                 Pantalla.setText("");
             }
         });
         a7Button.addActionListener(new ActionListener() {
+
             @Override
             public void actionPerformed(ActionEvent e) {
                 String pantallaText = Pantalla.getText();
@@ -257,7 +273,7 @@ public class VentanaCarculadora extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 JButton[] botones = {xButton,ACButton,a7Button,a4Button,a8Button,a2Button,button12,a1Button,button14,
-                        a5Button,button9,button17,a9Button,a6Button,a3Button,Button0,Punto,igualButton};
+                        a5Button,button9,button17,a9Button,a6Button,a3Button,Button0,Punto,igualButton,Raiz};
                 calculadoraEncendida = !calculadoraEncendida; // Cambia el estado de la calculadora
                 if (calculadoraEncendida) {
                     ONButton.setText("ON");
@@ -272,21 +288,35 @@ public class VentanaCarculadora extends JFrame {
 
 
             }
-
+            /**
+             * Deshabilita un conjunto de botones de la calculadora.
+             * @param botones Arreglo de botones a deshabilitar.
+             */
             private void deshabilitarBotones(JButton[] botones) {
                 for (JButton boton: botones){
                     boton.setEnabled(false);
                 }
                 Pantalla.setEnabled(false);
             }
-
+            /**
+             * Habilita un conjunto de botones de la calculadora.
+             * @param botones Arreglo de botones a habilitar.
+             */
             private void habilitarBotones(JButton[] botones) {
                 for (JButton boton : botones){
                     boton.setEnabled(true);
                 }
             }
         });
+
+
         Raiz.addActionListener(new ActionListener() {
+            /**
+             * Maneja la acción del botón de raíz cuadrada.
+             * Calcula y muestra la raíz cuadrada del número en pantalla si es no negativo.
+             * En caso de un número negativo, muestra un mensaje de error temporal.
+             * @param e El evento de acción que desencadena la operación.
+             */
             @Override
             public void actionPerformed(ActionEvent e) {
                 double numero = Double.parseDouble(Pantalla.getText());
@@ -312,7 +342,9 @@ public class VentanaCarculadora extends JFrame {
             }
         });
     }
-
+    /**
+     * Muestra la ventana de la calculadora haciendo que sea visible para el usuario.
+     */
     public void load(){
         setVisible(true);
     }
