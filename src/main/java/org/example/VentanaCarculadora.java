@@ -41,11 +41,11 @@ public class VentanaCarculadora extends JFrame {
 
         this.setContentPane(Calculadora);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
+        this.setTitle("CalculadoraSwing");
         Pantalla.setText("0");
         pack();
 
-
-
+        this.setIconImage(new ImageIcon(getClass().getClassLoader().getResource("calculadora.png")).getImage());
 
         ACButton.addActionListener(new ActionListener() {
             @Override
