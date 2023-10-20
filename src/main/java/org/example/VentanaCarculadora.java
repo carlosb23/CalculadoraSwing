@@ -9,7 +9,7 @@ import static java.lang.String.*;
 
 /**
  * Esta clase representa una calculadora GUI con operaciones básicas.
- * Permite realizar operaciones de suma, resta, multiplicación y división.
+ * Permite realizar operaciones de suma, resta, multiplicación y división.(Añadi tambien la raiz cuadrada y numeros negativos)
  * Además, incluye funciones para borrar la pantalla y encender/apagar la calculadora.
  */
 public class VentanaCarculadora extends JFrame {
@@ -53,6 +53,7 @@ public class VentanaCarculadora extends JFrame {
         Pantalla.setText("0");
         pack();
 
+        //Cambio de icono
         this.setIconImage(new ImageIcon(getClass().getClassLoader().getResource("calculadora.png")).getImage());
 
 
@@ -326,7 +327,7 @@ public class VentanaCarculadora extends JFrame {
                     Pantalla.setText(String.valueOf(resultado));
                 } else {
                     Pantalla.setForeground(Color.red);
-                    Pantalla.setText("Error: No negativos");
+                    Pantalla.setText("Error: No Raices negativas");
 
                     Timer timer = new Timer(4000, new ActionListener() {
                         @Override
